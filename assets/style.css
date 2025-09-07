@@ -30,6 +30,21 @@ body {
   z-index: 1030;
 }
 
+/* Forçar alinhamento da área de marca (toggle + logo) à esquerda */
+.navbar .d-flex.align-items-center {
+  margin-left: 8px;
+}
+
+/* Forçar conteúdo da navbar alinhado ao início (esquerda) */
+.navbar .container-fluid {
+  justify-content: flex-start !important;
+}
+
+/* Forçar a navbar inteira a alinhar à esquerda quando necessário */
+.navbar {
+  justify-content: flex-start !important;
+}
+
 .btn-primary {
   background-color: var(--secondary-color) !important;
   border-color: var(--secondary-color) !important;
@@ -101,6 +116,65 @@ body {
   flex: 1;
 }
 
+/* Quando a sidebar estiver colapsada */
+.sidebar.collapsed {
+  width: 60px;
+  padding-left: 10px;
+}
+
+body.sidebar-collapsed .main-content {
+  margin-left: 60px;
+}
+
+/* Pequeno ajuste para ícones e texto quando colapsado */
+.sidebar.collapsed ul li a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Viewport para centralizar o card de login verticalmente */
+.login-viewport {
+  min-height: calc(100vh - 56px);
+  padding-top: 56px; /* abaixo do navbar */
+}
+
+/* Mobile: animação de abertura vertical (height) */
+.sidebar {
+  transition: height 0.25s ease, padding 0.2s ease;
+}
+
+.sidebar .sidebar-mobile-header {
+  padding: 6px 0;
+}
+
+.sidebar-close {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Hide the mobile close header on desktop */
+@media (min-width: 769px) {
+  .sidebar-mobile-header { display: none; }
+}
+
+/* Garantir que o botão toggle fique acima da sidebar quando aberto */
+.sidebar-toggle {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1070;
+}
+
+/* Ajuste fino: remover deslocamentos que possam centralizar a marca */
+.navbar .d-flex.align-items-center {
+  margin-left: 0 !important;
+}
+.navbar-brand {
+  margin-left: 4px !important;
+}
+
 .container-fluid {
   flex: 1;
   display: flex;
@@ -111,13 +185,44 @@ body {
   flex: 1;
 }
 
+.navbar .container-fluid {
+    position: relative;
+    justify-content: center !important;
+}
+
+.navbar .d-flex.align-items-center {
+    margin-left: 0 !important;
+    flex-grow: 1;
+    justify-content: center;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
+  /* comportamento mobile: sidebar fecha para cima / abre para baixo */
   .sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: auto;
-    position: relative;
-    top: 0;
+    height: 0; /* fechado por padrão */
+    overflow: hidden;
+    transition: height 0.25s ease;
+    z-index: 1050;
+    padding: 0 20px;
+  }
+
+  /* quando aberto no mobile */
+  .sidebar.mobile-open {
+    height: 300px; /* altura de exemplo; conteúdo rolável se necessário */
+    overflow-y: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* esconder o botão de collapsible padrão do Bootstrap (evitar duplicação) */
+  .navbar-toggler {
+    display: none;
   }
   .main-content {
     margin-left: 0;
