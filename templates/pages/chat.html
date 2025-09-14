@@ -22,14 +22,16 @@
     </nav>
     <div id="sidebar" class="sidebar">
         <ul class="list-unstyled">
-            <li><a href="#"><i class="fas fa-search"></i> Busca</a></li>
             <li><a href="feed.html"><i class="fas fa-home"></i> Feed de Notícias</a></li>
-            <li><a href="profile.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+            <li><a href="profiles/aluno.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
             <li><a href="group.html"><i class="fas fa-users"></i> Grupos de Estudo</a></li>
             <li><a href="events.html"><i class="fas fa-calendar"></i> Eventos</a></li>
             <li><a href="chat.html"><i class="fas fa-comments"></i> Mensagens</a></li>
-            <li><a href="points.html"><i class="fas fa-trophy"></i> Gamificação</a></li>            
-            <li><a href="#"><i class="fas fa-bell"></i> Notificações <span class="badge bg-danger">2</span></a></li>
+            <li><a href="points.html"><i class="fas fa-trophy"></i> Gamificação</a></li>
+            <li><a href="search/index.html"><i class="fas fa-search"></i> Busca</a></li>
+            <li><a href="notifications/index.html"><i class="fas fa-bell"></i> Notificações</a></li>
+            <li><a href="admin/index.html"><i class="fas fa-cog"></i> Administração</a></li>
+            <li><a href="moderation/index.html"><i class="fas fa-shield-alt"></i> Moderação</a></li>
             <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
         </ul>
     </div>
@@ -58,17 +60,44 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card">
-                                <div class="card-header">Chat com Ricardo José da Silva</div>
-                                <div class="card-body" style="height: 300px; overflow-y: scroll;">
-                                    <p><strong>João:</strong> Olá! Como vai?</p>
-                                    <p><strong>Você:</strong> Tudo bem, e você?</p>
-                                    <p><strong>João:</strong> Bem também. Preparado para a prova?</p>
-                                    <p><strong>Você:</strong> Mais ou menos. Vamos estudar juntos?</p>
-                                    <p><strong>João:</strong> Claro! Que tal amanhã?</p>
+                                <div class="card-header d-flex justify-content-between">
+                                    <h5>Chat com Ricardo José da Silva</h5>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-primary"><i class="fas fa-paperclip"></i></button>
+                                        <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-phone"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="height: 400px; overflow-y: scroll;">
+                                    <div class="d-flex mb-2">
+                                        <div class="bg-light p-2 rounded me-2">
+                                            <small class="text-muted">João - 10:30</small>
+                                            <p class="mb-0">Olá! Como vai?</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end mb-2">
+                                        <div class="bg-primary text-white p-2 rounded ms-2">
+                                            <small class="text-white-50">Você - 10:32</small>
+                                            <p class="mb-0">Tudo bem, e você?</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-2">
+                                        <div class="bg-light p-2 rounded me-2">
+                                            <small class="text-muted">João - 10:35</small>
+                                            <p class="mb-0">Bem também. Preparado para a prova?</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end mb-2">
+                                        <div class="bg-primary text-white p-2 rounded ms-2">
+                                            <small class="text-white-50">Você - 10:37</small>
+                                            <p class="mb-0">Sim, estudando bastante!</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
-                                    <input type="text" class="form-control" placeholder="Digite sua mensagem">
-                                    <button class="btn btn-primary mt-2">Enviar</button>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Digite sua mensagem...">
+                                        <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
